@@ -20,7 +20,7 @@
                     <form action="">
                         <div class="row mb-5">
                             <div class="col-4">
-                                <a href="{{ url('/hero/create') }}" class="btn btn-primary">Tambah Data</a>
+                                <a href="{{ url('/partner/create') }}" class="btn btn-primary">Tambah Data</a>
                             </div>
                             <div class="col-2">
                                 <div class="form-group">
@@ -68,7 +68,7 @@
                                                     <form class="d-inline" action="{{url ('/partner/' . $partner->id) }}"
                                                         method="POST">
                                                         @csrf
-                                                        @method('DELET')
+                                                        @method('DELETE')
                                                         <button class="btn btn-danger"><i
                                                             class="fa-solid fa-trash"></i></button>
                                                     </form>

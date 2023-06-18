@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Partner extends Model
 {
     use HasFactory;
-    protected $fillabel = ['title', 'logo', 'status'];
+    protected $fillable = ['title', 'logo', 'status'];
 }

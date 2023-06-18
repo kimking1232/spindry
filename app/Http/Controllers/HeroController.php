@@ -56,8 +56,8 @@ class HeroController extends Controller
         ],
         [
             'title.required' => 'Kolom TITLE Tidak Boleh Kosong !',
-            'title.min' => 'kolom TITLE tertalu pendek !',
-            'title.max' => 'kolom TITLE tertalu panjang !',
+            'title.min' => 'kolom TITLE terlalu pendek !',
+            'title.max' => 'kolom TITLE terlalu panjang !',
             'subtitle.required' => 'Kolom SUBTITLE Tidak Boleh Kosong !',
             'subtitle.min' => 'kolom SUBTITLE tertalu pendek !',
             'subtitle.max' => 'kolom SUBTITLE tertalu panjang !',
@@ -154,7 +154,7 @@ class HeroController extends Controller
      */
     public function destroy(Hero $hero)
     {
-        if(file_exists(asset('/img/heroes'.$hero->background ))){
+        if(file_exists(public_path('/img/heroes/'.$hero->background ))){
             unlink(public_path('/img/heroes/'.$hero->background));
         }
         Hero::destroy('id', $hero->id);

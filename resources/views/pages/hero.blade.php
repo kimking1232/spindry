@@ -70,7 +70,7 @@
                                                     <a href="{{ url('/hero/' . $hero->id . '/edit') }}"
                                                         class="btn btn-warning"><i
                                                             class="fa-solid fa-pen-to-square"></i></a>
-                                                    <form class="d-inline" action="{{ url('/hero/' . $hero->id) }}"
+                                                    <form class="d-flex-inline" action="{{ url('/hero/' . $hero->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
