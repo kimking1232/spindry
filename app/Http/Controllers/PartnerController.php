@@ -42,6 +42,7 @@ class PartnerController extends Controller
                 'logo' => 'required|img|mimes:jpg,jpng,png,gif,svg|max2048'
             ],
             [
+                'title.required' => 'Kolom TITLE Tidak Boleh Kosong',
                 'title.required' => 'Kolom TITLE Tidak Boleh Kosong'
             ],
         )
