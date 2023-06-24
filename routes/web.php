@@ -3,6 +3,7 @@
 use App\Http\Controllers\HeroController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +44,11 @@ Route::post('partner', [PartnerController::class, 'store']);
 Route::get('/partner/{partner}/edit', [PartnerController::class, 'edit']);
 Route::put('/partner/{partner}', [PartnerController::class, 'update']);
 Route::delete('/partner/{partner}', [PartnerController::class, 'destroy']);
+
+//Page Service
+Route::get('/service', [ServiceController::class, 'index']);
+Route::get('/service/create', [ServiceController::class, 'create']);
+Route::post('/service', [ServiceController::class, 'store']);
+Route::get('/service/{service}/edit', [ServiceController::class, 'edit']);
+Route::put('/service/{service}', [ServiceController::class, 'update']);
+Route::delete('/service/{service}', [ServiceController::class, 'destroy']);
