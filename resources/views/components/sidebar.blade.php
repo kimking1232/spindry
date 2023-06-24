@@ -48,6 +48,13 @@
                         <span>Service</span>
                     </a>
                 </li>
+
+                <li class="sidebar-item">
+                    <a href="{{ url('/logout') }}" class='sidebar-link'>
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

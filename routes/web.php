@@ -4,6 +4,7 @@ use App\Http\Controllers\HeroController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+//Page Register
+Route::get('/register', [UserController::class, 'createRegister']);
+Route::post('/register', [UserCOntroller::class, 'storeRegister']);
+
+//Page Login
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'prosesLogin']);
+
+Route::get('/dashboard', function () {
     return view('pages.dashboard');
-});
+})->middleware('auth');
 
 // Page Hero
 Route::get('/hero', [HeroController::class, 'index']);
@@ -52,3 +61,5 @@ Route::post('/service', [ServiceController::class, 'store']);
 Route::get('/service/{service}/edit', [ServiceController::class, 'edit']);
 Route::put('/service/{service}', [ServiceController::class, 'update']);
 Route::delete('/service/{service}', [ServiceController::class, 'destroy']);
+
+Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
