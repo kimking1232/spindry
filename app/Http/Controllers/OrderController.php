@@ -12,7 +12,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $array = [
+            'nama' => 'jokowi',
+            'jabatan' => 'presiden dulu',
+            'negara' => 'indonesia raya',
+        ];
+        return $array;
     }
 
     /**

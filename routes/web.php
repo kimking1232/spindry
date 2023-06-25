@@ -28,38 +28,38 @@ Route::post('/login', [UserController::class, 'prosesLogin']);
 
 Route::get('/dashboard', function () {
     return view('pages.dashboard');
-})->middleware('auth');
+})->middleware(['auth', 'checkRole:admin']);
 
 // Page Hero
-Route::get('/hero', [HeroController::class, 'index']);
-Route::get('/hero/create', [HeroController::class, 'create']);
-Route::post('/hero', [HeroController::class, 'store']);
-Route::get('/hero/{hero}/edit', [HeroController::class, 'edit']);
-Route::put('/hero/{hero}', [HeroController::class, 'update']);
-Route::delete('/hero/{hero}', [HeroController::class, 'destroy']);
+Route::get('/hero', [HeroController::class, 'index'])->middleware(['auth', 'checkRole:admin']);
+Route::get('/hero/create', [HeroController::class, 'create'])->middleware(['auth', 'checkRole:admin']);
+Route::post('/hero', [HeroController::class, 'store'])->middleware(['auth', 'checkRole:admin']);
+Route::get('/hero/{hero}/edit', [HeroController::class, 'edit'])->middleware(['auth', 'checkRole:admin']);
+Route::put('/hero/{hero}', [HeroController::class, 'update'])->middleware(['auth', 'checkRole:admin']);
+Route::delete('/hero/{hero}', [HeroController::class, 'destroy'])->middleware(['auth', 'checkRole:admin']);
 
 //Page Promotion
-Route::get('/promotion', [PromotionController::class, 'index']);
-Route::get('/promotion/create', [PromotionController::class, 'create']);
-Route::post('/promotion', [PromotionController::class, 'store']);
-Route::get('/promotion/{promotion}/edit', [PromotionController::class, 'edit']);
-Route::put('/promotion/{promotion}', [PromotionController::class, 'update']);
-Route::delete('/promotion/{promotion}', [PromotionController::class, 'destroy']);
+Route::get('/promotion', [PromotionController::class, 'index'])->middleware(['auth', 'checkRole:admin']);
+Route::get('/promotion/create', [PromotionController::class, 'create'])->middleware(['auth', 'checkRole:admin']);
+Route::post('/promotion', [PromotionController::class, 'store'])->middleware(['auth', 'checkRole:admin']);
+Route::get('/promotion/{promotion}/edit', [PromotionController::class, 'edit'])->middleware(['auth', 'checkRole:admin']);
+Route::put('/promotion/{promotion}', [PromotionController::class, 'update'])->middleware(['auth', 'checkRole:admin']);
+Route::delete('/promotion/{promotion}', [PromotionController::class, 'destroy'])->middleware(['auth', 'checkRole:admin']);
 
 //Page Partner
-Route::get('/partner', [PartnerController::class, 'index']);
-Route::get('/partner/create', [PartnerController::class, 'create']);
-Route::post('partner', [PartnerController::class, 'store']);
-Route::get('/partner/{partner}/edit', [PartnerController::class, 'edit']);
-Route::put('/partner/{partner}', [PartnerController::class, 'update']);
-Route::delete('/partner/{partner}', [PartnerController::class, 'destroy']);
+Route::get('/partner', [PartnerController::class, 'index'])->middleware(['auth', 'checkRole:admin']);
+Route::get('/partner/create', [PartnerController::class, 'create'])->middleware(['auth', 'checkRole:admin']);
+Route::post('partner', [PartnerController::class, 'store'])->middleware(['auth', 'checkRole:admin']);
+Route::get('/partner/{partner}/edit', [PartnerController::class, 'edit'])->middleware(['auth', 'checkRole:admin']);
+Route::put('/partner/{partner}', [PartnerController::class, 'update'])->middleware(['auth', 'checkRole:admin']);
+Route::delete('/partner/{partner}', [PartnerController::class, 'destroy'])->middleware(['auth', 'checkRole:admin']);
 
 //Page Service
-Route::get('/service', [ServiceController::class, 'index']);
-Route::get('/service/create', [ServiceController::class, 'create']);
-Route::post('/service', [ServiceController::class, 'store']);
-Route::get('/service/{service}/edit', [ServiceController::class, 'edit']);
-Route::put('/service/{service}', [ServiceController::class, 'update']);
-Route::delete('/service/{service}', [ServiceController::class, 'destroy']);
+Route::get('/service', [ServiceController::class, 'index'])->middleware(['auth', 'checkRole:admin']);
+Route::get('/service/create', [ServiceController::class, 'create'])->middleware(['auth', 'checkRole:admin']);
+Route::post('/service', [ServiceController::class, 'store'])->middleware(['auth', 'checkRole:admin']);
+Route::get('/service/{service}/edit', [ServiceController::class, 'edit'])->middleware(['auth', 'checkRole:admin']);
+Route::put('/service/{service}', [ServiceController::class, 'update'])->middleware(['auth', 'checkRole:admin']);
+Route::delete('/service/{service}', [ServiceController::class, 'destroy'])->middleware(['auth', 'checkRole:admin']);
 
-Route::get('/logout', [UserController::class, 'logout'])->middleware('auth');
+Route::get('/logout', [UserController::class, 'logout'])->middleware(['auth', 'checkRole:admin']);
