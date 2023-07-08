@@ -5,6 +5,7 @@ use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -61,5 +62,8 @@ Route::post('/service', [ServiceController::class, 'store'])->middleware(['auth'
 Route::get('/service/{service}/edit', [ServiceController::class, 'edit'])->middleware(['auth', 'checkRole:admin']);
 Route::put('/service/{service}', [ServiceController::class, 'update'])->middleware(['auth', 'checkRole:admin']);
 Route::delete('/service/{service}', [ServiceController::class, 'destroy'])->middleware(['auth', 'checkRole:admin']);
+
+//Page Order
+Route::get('/order', [OrderController::class, 'index'])->middleware(['auth', 'checkRole:admin']);
 
 Route::get('/logout', [UserController::class, 'logout'])->middleware(['auth', 'checkRole:admin']);

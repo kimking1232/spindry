@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('weight');
             $table->date('date');
             $table->integer('total_price');
-            $table->enum('status', ['show', 'hide'])->default('hide');
+            $table->enum('status', ['finish', 'notYet'])->default('notYet');
             $table->timestamps();
         });
     }

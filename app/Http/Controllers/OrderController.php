@@ -10,14 +10,23 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(request $request)
     {
-        $array = [
-            'nama' => 'jokowi',
-            'jabatan' => 'presiden dulu',
-            'negara' => 'indonesia raya',
-        ];
-        return $array;
+        $q = $request->q;
+        $pagination = $request->has('pagination') ? $request->pagination:10;
+        if($q)
+        {
+            $orders = Order::where('user', 'like', '%'.$q.'%')->paginate($pagination);
+        } else {
+            // menampilkan seluruh data index/view
+            // $heroes = Hero::all();
+            // menampilkan pagination data index/view
+            $orders = Order::paginate($pagination);
+
+        }
+        //vardump cek data didalam tabel database
+        // return $heroes;
+        return view('pages.order', compact('orders', 'q'));
     }
 
     /**

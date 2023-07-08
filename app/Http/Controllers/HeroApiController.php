@@ -10,6 +10,11 @@ class HeroApiController extends Controller
     public function getData()
     {
         $heroes = Hero::all();
-        return response()->json($heroes);
+        $data = [
+            'status' => 'success',
+            'message' => 'data heroes berhasil diambil',
+            'data' => $heroes,
+        ];
+        return response()->json($data);
     }
 }
