@@ -54,7 +54,7 @@ class ServiceController extends Controller
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'title' => 'required|min:5|max:20',
             'price' => 'required|numeric',
-            'description' => 'required|min:5|max:255'
+            'description' => 'required|min:5|max:4000'
         ],
         [
             'logo.required' => 'Kolom LOGO Tidak Boleh Kosong !',
@@ -124,7 +124,7 @@ class ServiceController extends Controller
                 // 'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'title' => 'required|min:5|max:20',
                 'price' => 'required|numeric',
-                'description' => 'required|min:5|max:255'
+                'description' => 'required|min:5|max:500'
             ],
             [
                 // 'logo.required' => 'Kolom LOGO Tidak Boleh Kosong !',

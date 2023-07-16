@@ -26,10 +26,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/login', [UserApiController::class, 'login']);
 
-Route::get('/hero', [HeroApiController::class, 'getData'])->middleware('auth:sanctum');
-Route::get('/partner', [PartnerApiController::class, 'getData'])->middleware('auth:sanctum');
-Route::get('/promotion', [PromotionApiController::class, 'getData'])->middleware('auth:sanctum');
-Route::get('/service', [ServiceApiController::class, 'getData'])->middleware('auth:sanctum');
+Route::get('/hero', [HeroApiController::class, 'getData']);
+Route::get('/partner', [PartnerApiController::class, 'getData']);
+Route::get('/promotion', [PromotionApiController::class, 'getData']);
+Route::get('/service', [ServiceApiController::class, 'getData']);
 
 Route::resource('/order', OrderApiController::class)->except('create', 'show', 'edit', 'update')->middleware('auth:sanctum');
 Route::get('/logout', [UserApiController::class, 'logout'])->middleware('auth:sanctum');

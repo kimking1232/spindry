@@ -10,6 +10,11 @@ class ServiceApiController extends Controller
     public function getData()
     {
         $services = Service::all();
-        return response()->json($services);
+        $data = [
+            'status' => 'success',
+            'message' => 'data heroes berhasil diambil',
+            'data' => $services,
+        ];
+        return response()->json($data);
     }
 }

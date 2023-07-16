@@ -9,7 +9,7 @@ class HeroApiController extends Controller
 {
     public function getData()
     {
-        $heroes = Hero::all();
+        $heroes = Hero::where('status', 'show')->first();
         $data = [
             'status' => 'success',
             'message' => 'data heroes berhasil diambil',
