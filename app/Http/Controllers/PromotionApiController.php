@@ -12,7 +12,7 @@ class PromotionApiController extends Controller
         $promotions = Promotion::where('status', 'show')->get();
         $data = [
             'status' => 'success',
-            'message' => 'data heroes berhasil diambil',
+            'message' => 'data promotions berhasil diambil',
             'data' => $promotions,
         ];
         return response()->json($data);

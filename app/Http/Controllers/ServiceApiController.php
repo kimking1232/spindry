@@ -12,7 +12,7 @@ class ServiceApiController extends Controller
         $services = Service::all();
         $data = [
             'status' => 'success',
-            'message' => 'data heroes berhasil diambil',
+            'message' => 'data service berhasil diambil',
             'data' => $services,
         ];
         return response()->json($data);

@@ -65,7 +65,7 @@
                                                 <td>{{ $service->logo }}</td>
                                                 <td>{{ $service->title }}</td>
                                                 <td>{{ $service->price }}</td>
-                                                <td>{{ $service->description }}</td>
+                                                <td>{!! $service->description !!}</td>
                                                 <td>
                                                     <form class="d-inline-flex"
                                                         action="{{ url('/service/' . $service->id) }}" method="POST">

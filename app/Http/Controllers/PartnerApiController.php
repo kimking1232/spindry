@@ -12,7 +12,7 @@ class PartnerApiController extends Controller
         $partners = Partner::where('status', 'show')->get();
         $data = [
             'status' => 'success',
-            'message' => 'data heroes berhasil diambil',
+            'message' => 'data partner berhasil diambil',
             'data' => $partners,
         ];
         return response()->json($data);
