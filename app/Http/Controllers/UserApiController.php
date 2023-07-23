@@ -15,20 +15,20 @@ class UserApiController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required|unique:users,name',
-                'email' => 'required|unique:users,email',
-                'telephone' => 'required',
                 'address' => 'required',
                 'password' => 'required',
+                'email' => 'required|unique:users,email',
+                'telephone' => 'required',
+                'name' => 'required|unique:users,name',
             ],
             [   
                 'name.required' => 'username tidak boleh kosong!',
                 'name.unique' => 'username telah terdaftar sebelumnya!',
                 'password.required' => 'password tidak boleh kosong!',
-                'email.required' => 'password tidak boleh kosong!',
-                'email.unique' => 'password telah terdaftar sebelumnya!',
-                'address.required' => 'password tidak boleh kosong!',
-                'telephone.required' => 'password tidak boleh kosong!',
+                'email.required' => 'email tidak boleh kosong!',
+                'email.unique' => 'email telah terdaftar sebelumnya!',
+                'address.required' => 'address tidak boleh kosong!',
+                'telephone.required' => 'telephone tidak boleh kosong!',
             ]
         );
 
@@ -36,7 +36,8 @@ class UserApiController extends Controller
         {
             return response()->json(
                 [
-                    'message'=>json_decode($validator->errors())
+                    'status' => 'error',
+                    'message'=> $validator->errors()
                 ]
             );
         }
@@ -65,12 +66,12 @@ class UserApiController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name' => 'required',
+                'email' => 'required',
                 'password' => 'required',
             ],
             [   
-                'name.required' => 'username tidak boleh kosong!',
-                'password.required' => 'password tidak boleh kosong!',
+                'email.required' => 'Email tidak boleh kosong!',
+                'password.required' => 'Password tidak boleh kosong!',
             ]
         );
 
@@ -78,30 +79,34 @@ class UserApiController extends Controller
         {
             return response()->json(
                 [
-                    'message'=>json_decode($validator->errors())
+                    'status' => 'error',
+                    'message'=> $validator->errors()
                 ]
             );
         }
         $credential = [
-            'name' => $request->name,
+            'email' => $request->email,
             'password' => $request->password
         ];
 
         if(Auth::attempt($credential)){
-            $user = User::where('name', $request->name)->first();
+            $user = User::where('email', $request->email)->first();
             $token = $user->createToken('authToken')->plainTextToken;
             $user->token = $token;
             $user->token_type = 'Bearer';
             $data = [
                 'status' => 'success',
-                'message'=> 'user berhasil login',
+                'message'=> 'Anda Berhasil Login',
                 'data' => $user,
             ];
             return response()->json($data);
         }else{
+            $pesan = [
+                'pesan' => ['Email atau Password Salah, silahkan periksa kembali!']
+            ];
             $data = [
-                'status' => 'success',
-                'message'=> 'user gagal login',
+                'status' => 'error',
+                'message'=> ($pesan),
                 'data' => NULL,
             ];
             return response()->json($data);
