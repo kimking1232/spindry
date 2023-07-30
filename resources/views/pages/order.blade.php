@@ -57,7 +57,8 @@
                                                 <td>{{ $order->weight }}</td>
                                                 <td>{{ $order->date }}</td>
                                                 <td>{{ $order->total_price }}</td>
-                                                <td>{{ $order->status }}</td>
+                                                <td><a href="{{url('order/status/'.$order->id)}}" 
+                                                    class="btn btn-outline-dark">{{ $order->status }}</a></td>
                                             </tr>
                                         @endforeach
                                     </tbody>

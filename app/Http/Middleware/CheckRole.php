@@ -17,10 +17,10 @@ class CheckRole
     public function handle(Request $request, Closure $next): Response
     {
         $roles = array_slice(func_get_args(), 2);
-        Auth::user()->role; //info orang yang login
+        $login = Auth::user()->role; //info orang yang login
         foreach($roles as $role)
         {
-            if($login = $role)
+            if($login == $role)
             {
                 return $next($request);
             }

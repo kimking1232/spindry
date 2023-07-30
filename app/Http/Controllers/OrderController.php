@@ -29,6 +29,19 @@ class OrderController extends Controller
         return view('pages.order', compact('orders', 'q'));
     }
 
+    public function status(Order $order)
+    {
+        if($order->status == 'notYet')
+        {
+            Order::where('id', $order->id)->update([
+                'status' => 'finish'
+            ]);
+            return redirect()->back()->with('succes', 'status order no '.$order->number. 'berhasil di update');
+        }else{
+            return redirect()->back()->with('succes', 'status order no '.$order->number. 'telah selesai');
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

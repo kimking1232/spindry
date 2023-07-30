@@ -51,7 +51,7 @@
 
                 <li class="sidebar-item">
                     <a href="{{ url('/order')}}" class="sidebar-link">
-                        <i class="fa-regular fa-cart-shopping"></i>
+                        <i class="fa-solid fa-cart-shopping"></i>
                         <span>Order</span>
                     </a>
                 </li>

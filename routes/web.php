@@ -31,6 +31,8 @@ Route::get('/dashboard', function () {
     return view('pages.dashboard');
 })->middleware(['auth', 'checkRole:admin']);
 
+Route::get('/order/status/{order}', [OrderController::class, 'status'])->middleware(['auth', 'checkRole:admin']);
+
 // Page Hero
 Route::get('/hero', [HeroController::class, 'index'])->middleware(['auth', 'checkRole:admin']);
 Route::get('/hero/create', [HeroController::class, 'create'])->middleware(['auth', 'checkRole:admin']);
